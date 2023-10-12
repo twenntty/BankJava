@@ -22,4 +22,12 @@ public class Bank {
         }
         throw  new AccountNotFoundException("Account not found with account number: " + accountNumber);
     }
+
+    public void transferMoney(int fromAccountNumber, int toAccountNumber, double amount)
+            throws NegativeAmountException, InsufficientFundsException, AccountNotFoundException {
+        BankAccount fromAccount = findAccount(fromAccountNumber);
+        BankAccount toAccount = findAccount(toAccountNumber);
+        fromAccount.withdraw(amount);
+        toAccount.deposit(amount);
+    }
 }

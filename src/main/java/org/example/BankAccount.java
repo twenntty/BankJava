@@ -11,22 +11,21 @@ class BankAccount {
         this.balance = initialDeposit;
     }
 
-    class InsufficientFundsException extends Exception {
-        public InsufficientFundsException(String message) {
-            super(message);
+    public void deposit(double amount) throws NegativeAmountException {
+        if (amount < 0) {
+            throw new NegativeAmountException("Negative amount cannot be deposited.");
         }
+        balance += amount;
     }
 
-    class NegativeAmountException extends Exception {
-        public NegativeAmountException(String message) {
-            super(message);
+    public void withdraw(double amount) throws NegativeAmountException, InsufficientFundsException {
+        if (amount < 0) {
+            throw new NegativeAmountException("Negative amount cannot be withdrawn.");
         }
-    }
-
-    class AccountNotFoundException extends Exception {
-        public AccountNotFoundException(String message) {
-            super(message);
+        if (amount > balance) {
+            throw new InsufficientFundsException("Insufficient funds for withdrawal.");
         }
+        balance -= amount;
     }
 
     public double getBalance() {
