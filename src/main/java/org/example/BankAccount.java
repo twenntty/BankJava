@@ -10,4 +10,13 @@ class BankAccount {
         this.accountName = accountName;
         this.balance = initialDeposit;
     }
+
+    public double getBalance() {
+        return balance;
+    }
+
+
+    public String getAccountSummary() {
+        return "Account Number: " + accountNumber + ", Account Name: " + accountName + ", Balance: " + balance;
+    }
 }
