@@ -19,4 +19,8 @@ class BankAccount {
     public String getAccountSummary() {
         return "Account Number: " + accountNumber + ", Account Name: " + accountName + ", Balance: " + balance;
     }
+
+    public int getAccountNumber() {
+        return accountNumber;
+    }
 }
